@@ -327,6 +327,7 @@ module.exports = class extends BaseBlueprintGenerator {
                     this.testFrameworks = this.configOptions.testFrameworks;
                 }
                 this.protractorTests = this.testFrameworks.includes('protractor');
+                this.cypressTests = this.testFrameworks.includes('cypress');
 
                 if (this.configOptions.enableTranslation !== undefined) {
                     this.enableTranslation = this.configOptions.enableTranslation;
