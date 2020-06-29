@@ -146,6 +146,9 @@
     <%_ if (protractorTests) { _%>
     "ts-node": "8.9.1",
     <%_ } _%>
+    <%_ if (cypressTests) { _%>
+        "cypress": "4.9.0",
+    <%_ } _%>
     "tslint": "6.1.2",
     "typescript": "3.8.3",
     <%_ otherModules.forEach(module => { _%>
@@ -181,6 +184,9 @@
     "start": "<%= clientPackageManager %> run webpack:dev",
     <%_ if (skipServer) { _%>
     "sonar": "sonar-scanner",
+    <%_ } _%>
+    <%_ if (cypressTests) { _%>
+        "cypress": "cypress open",
     <%_ } _%>
     "start-tls": "<%= clientPackageManager %> run webpack:dev <%= optionsForwarder %>--env.tls",
     "serve": "<%= clientPackageManager %> run start",
