@@ -16,9 +16,15 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -%>
-{
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "module": "commonjs"
-  }
-}
+# ================================================================================
+# App Engine Configuration.
+# Full reference is available at:
+# https://cloud.google.com/appengine/docs/standard/java11/reference/dispatch-yaml
+# ================================================================================
+
+dispatch:
+    # Default service serves the typical web resources and all static resources.
+    <% for (appConfig of appConfigs) { %>
+    - url: "*/services/<%= appConfig.baseName %>/*"
+      service: <%= appConfig.gaeServiceName %>
+    <% } %>
