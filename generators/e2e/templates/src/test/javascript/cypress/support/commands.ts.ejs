@@ -1,0 +1,69 @@
+/* eslint-disable @typescript-eslint/no-namespace */
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
+// ***********************************************
+// This commands.ts shows you how to
+// create various custom commands and overwrite
+// existing commands.
+//
+// For more comprehensive examples of custom
+// commands please read more here:
+// https://on.cypress.io/custom-commands
+// ***********************************************
+
+// ***********************************************
+// Begin Specific Selector Attributes for Cypress
+// ***********************************************
+
+// Navbar
+export const navbarSelector = '[data-cy="navbar"]';
+export const adminMenuSelector = '[data-cy="admin-menu"]';
+export const accountMenuSelector = '[data-cy="account-menu"]';
+export const registerItemSelector = '[data-cy="register"]';
+export const loginItemSelector = '[data-cy="login"]';
+export const logoutItemSelector = '[data-cy="logout"]';
+
+// Login
+export const titleLoginSelector = '[data-cy="login-title"]';
+export const errorLoginSelector = '[data-cy="login-error"]';
+export const usernameLoginSelector = '[data-cy="username"]';
+export const passwordLoginSelector = '[data-cy="password"]';
+export const submitLoginSelector = '[data-cy="submit"]';
+
+// Register
+export const titleRegisterSelector = '[data-cy="register-title"]'
+export const usernameRegisterSelector = '[data-cy="username"]';
+export const emailRegisterSelector = '[data-cy="email"]';
+export const firstPasswordRegisterSelector = '[data-cy="firstPassword"]';
+export const secondPasswordRegisterSelector = '[data-cy="secondPassword"]';
+export const submitRegisterSelector = '[data-cy="submit"]';
+
+// Administration
+export const userManagementPageHeadingSelector = '[data-cy="user-management-page-heading"]';
+export const metricsPageHeadingSelector = '[data-cy="metrics-page-heading"]';
+export const healthPageHeadingSelector = '[data-cy="health-page-heading"]';
+export const auditsPageHeadingSelector = '[data-cy="audits-page-heading"]';
+export const logsPageHeadingSelector = '[data-cy="logs-page-heading"]';
+export const configurationPageHeadingSelector = '[data-cy="configuration-page-heading"]';
+
+// ***********************************************
+// End Specific Selector Attributes for Cypress
+// ***********************************************
+
+Cypress.Commands.add('login', (username: string, password: string) => {
+    cy.clickOnLoginItem();
+    cy.get(usernameLoginSelector).type(username);
+    cy.get(passwordLoginSelector).type(password);
+    cy.get(submitLoginSelector).click();
+  });
+
+declare global {
+    namespace Cypress {
+        interface Chainable<Subject> {
+        login(username: string, password: string): Cypress.Chainable;
+        }
+    }
+}
+
+// Convert this to a module instead of script (allows import/export)
+export {};

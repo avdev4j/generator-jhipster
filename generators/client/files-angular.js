@@ -23,7 +23,6 @@ const constants = require('../generator-constants');
 const MAIN_SRC_DIR = constants.CLIENT_MAIN_SRC_DIR;
 const TEST_SRC_DIR = constants.CLIENT_TEST_SRC_DIR;
 const ANGULAR_DIR = constants.ANGULAR_DIR;
-const CYPRESS_DIR = 'cypress/';
 
 /**
  * The default is to use a file path string. It implies use of the template method.
@@ -36,6 +35,7 @@ const files = {
                 'package.json',
                 'proxy.conf.json',
                 'tsconfig.json',
+                'tsconfig.base.json',
                 'tsconfig.app.json',
                 'tslint.json',
                 '.eslintrc.json',
@@ -506,22 +506,6 @@ const files = {
         {
             condition: generator => generator.protractorTests,
             templates: ['tsconfig.e2e.json'],
-        },
-        {
-            condition: generator => generator.cypressTests,
-            path: CYPRESS_DIR,
-            templates: [
-                'integration/account/login_page_spec.js',
-                'integration/account/register_page_spec.js',
-                'integration/administration/administration_spec.js',
-                'plugins/index.js',
-                'support/index.js',
-                'support/commands.js',
-            ],
-        },
-        {
-            condition: generator => generator.cypressTests,
-            templates: ['cypress.json'],
         },
     ],
 };

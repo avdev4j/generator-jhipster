@@ -1,0 +1,67 @@
+import {
+    userManagementPageHeadingSelector,
+    metricsPageHeadingSelector,
+    healthPageHeadingSelector,
+    auditsPageHeadingSelector,
+    logsPageHeadingSelector,
+    configurationPageHeadingSelector,
+} from '../../support/commands';
+
+<%# Add OAuth2 login feature %>
+describe('/admin', () => {
+
+    before(() => {
+        cy.visit('');
+        cy.login('admin','admin');
+    });
+
+    after(() => {
+        cy.clickOnLogoutItem();
+    });
+<%_ if (!skipUserManagement) { _%>
+    describe('/user-management', () => {
+        it('should load the page', () => {
+          cy.clickOnAdminMenuItem('user-management');
+          cy.get(userManagementPageHeadingSelector).should('be.visible');
+        });
+    });
+<%_ } _%>
+
+    describe('/metrics', () => {
+        it('should load the page', () => {
+        cy.clickOnAdminMenuItem('metrics');
+        cy.get(metricsPageHeadingSelector).should('be.visible');
+        });
+    });
+
+    describe('/health', () => {
+        it('should load the page', () => {
+        cy.clickOnAdminMenuItem('health');
+        cy.get(healthPageHeadingSelector).should('be.visible');
+        });
+    });
+
+<%_ if ((databaseType !== 'no' || authenticationType === 'uaa') && databaseType !== 'cassandra') { _%>
+    describe('/audits', () => {
+        it('should load the page', () => {
+          cy.clickOnAdminMenuItem('audits');
+          cy.get(auditsPageHeadingSelector).should('be.visible');
+        });
+    });
+<%_ } _%>
+
+    describe('/logs', () => {
+        it('should load the page', () => {
+        cy.clickOnAdminMenuItem('logs');
+        cy.get(logsPageHeadingSelector).should('be.visible');
+        });
+    });
+
+    describe('/configuration', () => {
+        it('should load the page', () => {
+        cy.clickOnAdminMenuItem('configuration');
+        cy.get(configurationPageHeadingSelector).should('be.visible');
+        });
+    });
+
+});
