@@ -48,6 +48,14 @@ const cypressFiles = {
                 'cypress/tsconfig.json',
             ],
         },
+        {
+            condition: generator => generator.databaseType !== 'no',
+            path: TEST_SRC_DIR,
+            templates: [
+                'cypress/integration/account/password_page_spec.ts',
+                'cypress/integration/account/reset_password_page_spec.ts',
+            ]
+        },
     ],
 };
 module.exports = {
