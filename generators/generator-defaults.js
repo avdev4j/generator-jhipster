@@ -41,6 +41,7 @@ const appDefaultConfig = {
     otherModules: [],
     clientPackageManager: 'npm',
     pages: [],
+    enableAdminModule: true,
 };
 
 /** Required config for prompts to be skipped */

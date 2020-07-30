@@ -25,6 +25,7 @@ module.exports = {
     askForInsightOptIn,
     askForApplicationType,
     askForModuleName,
+    askForAdminModule,
     askForTestOpts,
     askForMoreModules,
 };
@@ -87,6 +88,21 @@ async function askForApplicationType() {
 function askForModuleName() {
     if (this.existingProject) return undefined;
     return this.askModuleName(this);
+}
+
+async function askForAdminModule() {
+    if (this.existingProject) return undefined;
+
+    const PROMPT = {
+        type: 'confirm',
+        name: 'enableAdminModule',
+        message: 'Do you want to enable administration module (health, metrics, logs...)?',
+        default: generatorDefaults.enableAdminModule,
+    };
+
+    const answers = await this.prompt(PROMPT);
+    this.enableAdminModule = this.jhipsterConfig.enableAdminModule = answers.enableAdminModule;
+    return answers;
 }
 
 async function askForTestOpts() {

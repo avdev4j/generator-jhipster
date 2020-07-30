@@ -284,6 +284,7 @@ module.exports = class extends BaseBlueprintGenerator {
             askForInsightOptIn: prompts.askForInsightOptIn,
             askForApplicationType: prompts.askForApplicationType,
             askForModuleName: prompts.askForModuleName,
+            askForAdminModule: prompts.askForAdminModule,
         };
     }
 
