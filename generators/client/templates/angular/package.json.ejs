@@ -186,6 +186,7 @@
     <%_ } _%>
     <%_ if (cypressTests) { _%>
         "cypress": "cypress open",
+        "cypress:run": "cypress run",
     <%_ } _%>
     "start-tls": "<%= clientPackageManager %> run webpack:dev <%= optionsForwarder %>--env.tls",
     "serve": "<%= clientPackageManager %> run start",
