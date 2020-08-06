@@ -180,7 +180,7 @@ jobs:
             - name: 'TESTS: packaging'
               run: $JHI_SCRIPTS/23-package.sh
             - name: 'TESTS: End-to-End'
-              run: $JHI_SCRIPTS/24-tests-cypress.sh
+              run: $JHI_SCRIPTS/24-tests-e2e.sh
             - name: 'TESTS: Sonar analysis'
               run: $JHI_SCRIPTS/25-sonar-analyze.sh
               env:
