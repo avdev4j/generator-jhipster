@@ -208,6 +208,7 @@ limitations under the License.
     <%_ } _%>
     <%_ if (cypressTests) { _%>
     "cypress": "cypress open",
+    "cypress:run": "cypress run",
     <%_ } _%>
     "start": "<%= clientPackageManager %> run webpack:dev",
     "start-tls": "<%= clientPackageManager %> run webpack:dev <%= optionsForwarder %>--env.tls",
