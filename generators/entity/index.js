@@ -275,6 +275,7 @@ class EntityGenerator extends BaseBlueprintGenerator {
                 const context = this.context;
 
                 context.protractorTests = context.testFrameworks.includes('protractor');
+                context.cypressTests = context.testFrameworks.includes('cypress');
                 context.gatlingTests = context.testFrameworks.includes('gatling');
                 context.cucumberTests = context.testFrameworks.includes('cucumber');
 

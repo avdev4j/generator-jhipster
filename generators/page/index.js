@@ -73,6 +73,7 @@ module.exports = class extends BaseBlueprintGenerator {
                 this.clientPackageManager = this.jhipsterConfig.clientPackageManager;
                 this.enableTranslation = this.jhipsterConfig.enableTranslation;
                 this.protractorTests = this.jhipsterConfig.testFrameworks && this.jhipsterConfig.testFrameworks.includes('protractor');
+                this.cypressTests = this.jhipsterConfig.testFrameworks && this.jhipsterConfig.testFrameworks.includes('cypress');
                 this.clientFramework = this.jhipsterConfig.clientFramework;
 
                 if (this.clientFramework !== VUE) {

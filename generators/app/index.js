@@ -367,6 +367,15 @@ module.exports = class extends BaseBlueprintGenerator {
                         debug: this.isDebugEnabled,
                     });
                 }
+                if (!this.configOptions.skipComposeE2E) {
+                    this.configOptions.skipComposeE2E = true;
+                    this.composeWith(require.resolve('../e2e'), {
+                        ...options,
+                        'client-hook': !this.skipClient,
+                        configOptions,
+                        debug: this.isDebugEnabled,
+                    });
+                }
             },
 
             askForTestOpts: prompts.askForTestOpts,
