@@ -87,7 +87,7 @@ describe('JHipster app generator with blueprint', () => {
             });
 
             it('creates expected files from jhipster app generator', () => {
-                assert.noFile(`${SERVER_MAIN_SRC_DIR}config/StaticResourcesWebConfiguration.java`);
+                assert.noFile(`${SERVER_MAIN_SRC_DIR}com/mycompany/myapp/config/StaticResourcesWebConfiguration.java`);
             });
         });
     });
@@ -132,7 +132,7 @@ describe('JHipster app generator with blueprint', () => {
             });
 
             it('creates expected files from jhipster app generator', () => {
-                assert.file(`${SERVER_MAIN_SRC_DIR}config/StaticResourcesWebConfiguration.java`);
+                assert.file(`${SERVER_MAIN_SRC_DIR}com/mycompany/myapp/config/StaticResourcesWebConfiguration.java`);
             });
         });
     });
