@@ -8,7 +8,7 @@ const SERVER_MAIN_SRC_DIR = constants.SERVER_MAIN_SRC_DIR;
 
 const mockBlueprintSubGen = class extends AppGenerator {
     constructor(args, opts) {
-        super(args, {fromBlueprint: true, ...opts}); // fromBlueprint variable is important
+        super(args, { fromBlueprint: true, ...opts }); // fromBlueprint variable is important
 
         const jhContext = (this.jhipsterContext = this.options.jhipsterContext);
 
